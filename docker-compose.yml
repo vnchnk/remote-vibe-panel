@@ -1,0 +1,13 @@
+services:
+  devpanel:
+    build: .
+    ports:
+      - "8080:3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${PROJECT_DIR:-./}:/app/project
+      - ${HOME:-/root}/.claude:/root/.claude
+    environment:
+      - PROJECT_DIR=/app/project
+      - DATABASE_URL=${DATABASE_URL:-}
+    restart: unless-stopped

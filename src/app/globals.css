@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.animate-slide-up {
+  animation: slide-up 0.2s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-highlight {
+  animation: reveal-flash 1.5s ease-out;
+}
+
+@keyframes reveal-flash {
+  0% {
+    background-color: rgba(59, 130, 246, 0.3);
+  }
+  60% {
+    background-color: rgba(59, 130, 246, 0.3);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
